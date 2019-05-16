@@ -1,0 +1,66 @@
+README
+
+RaceID reimplement and improving.
+
+data:
+transcripts_counts_intestine.xls      <====== original datasets
+data2.xls   <======= another dataset, if you want to use, datamatrix,nrows,ncols=excel2matrix('data2.xls'), and also change the parameter in filterdata(datamatrix, ncols, nrows ,mintotal, minexpr, minnumber, maxexpr, normlog)
+
+
+code:
+main.py
+
+Output figure: 
+/fig
+
+report:
+/report/RaceIDreport.pdf
+
+Slides:
+/slides/RaceIDslides.pdf
+
+
+main.py
+
+-excel2matrix(path)
+#Read the .xls data and change the data into numpy.matrix format
+
+-filterdata(datamatrix, ncols, nrows ,mintotal, minexpr, minnumber, maxexpr, normlog)
+#Filter and scale the data.
+
+
+-transform2dataframe(datamatrix, form)
+#change  np.matrix  to dataframe , which is needed in the following function below.
+
+
+-gap_statistic(data, nrefs=5, maxClusters=20)
+# to find the best k in the kmeans, many methods are supported
+
+-silhouette(max_K,data)
+#silhouette to evaluate the performance of kmeans
+
+
+-dim_reduce_tsne(data,dimension,perplexity)
+#dimension reduction by t-SNE
+
+
+-dim_reduce_pca(data,dimension)
+#dimension reduction by PCA
+
+
+-plot_kmeans_di2(data,max_k)
+#plot in 2-dimension
+
+
+-threadForSilhouette(data)
+#parallel calculations for silhouette
+
+
+-threadForGap(data)
+#parallel calculations for gap statistic
+
+
+
+
+
+
